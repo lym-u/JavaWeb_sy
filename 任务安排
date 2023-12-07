@@ -1,0 +1,128 @@
+
+
+/********基于SpringBoot的食堂点评交流社区*********/
+语言：java javaweb
+开发工具：IDEA,SQLservice,Tomcat
+项目框架：SpringBoot,ssm,layui
+
+
+
+/**************** 项目开发过程 *****************/
+1、页面设计（墨刀 or sth else）
+简要展示界面布局和功能即可
+先做好，给后面其他人做参考
+
+2、数据库设计和开发（sql service/云数据库）
+数据库表设计
+视图、存储过程、索引等技术应用
+数据库性能优化
+
+3、前端界面设计和开发
+用户界面设计
+响应式布局
+页面交互功能实现
+
+4、后端逻辑开发
+用户认证和权限控制
+数据库连接和操作
+业务逻辑实现
+
+5、测试与调试
+单元测试
+集成测试
+故障排查与修复
+
+6、文档撰写（每个人写自己的部分）
+项目报告撰写
+系统使用说明文档
+数据库设计文档
+
+
+
+/******************** 任务分配 **********************/
+1、页面设计，一个人画，大家可以一起商量，先确定下项目的结构，可以画墨刀 or 直接在pad上画。
+2、数据库，（可能需要一个云数据库，大家摊钱），1个人，前期主要是表的设计，后期还要写mapper配置啥的。
+3、前端页面，2个人，负责所有的html，统一格式。
+4、后端，按功能分，登录界面、系统管理员界面、食堂管理员界面和师生用户界面三大块，每个界面1个主管，成员1-2个。
+5、测试，1个人。
+6、其他小任务后期再加。
+/*n个人只是大概任务量的多少，个人具体想做多做少都行，比如说A可以和B一起做前端页面的同时和C一起写登陆界面。*/
+
+
+
+
+
+
+
+/********* main文件夹主要文件结构示例 **********/
+/* 实例都是随便取的名字，之后会根据实际情况改 */
+
+Main
+  Java
+    Com.canteen
+    	Bean（实体类目录）
+    		ResultObject（前台请求后后台返回响应时用到的实体类）
+    		TDish（菜品的实体类）
+    		TStudent（学生信息的实体类）
+    		User（登录用户的实体类）
+    		……
+    	Boot（springboot项目的启动类）
+    		StartApplication
+    	Controller（控制层）
+    		DishController（菜品的控制类）
+    		StudentController（学生的控制类）
+    		UserController（用户的控制类）
+    		……
+    	Dao（放mapper接口（对应的mapper配置文件在resources，一一对应）
+    		TDishMapper
+    		TStudentMapper
+    		UserDao
+    		……
+    	Interceptor（拦截器）
+    		ErroInterceptor（错误拦截器）
+    		FilterConfig（拦截器的配置）
+    		LoginFilter（用户登录的过滤配置）
+    		MyWebAppConfigurer（配置拦截器）
+    	Service（业务层接口）
+    		Impl（业务层实现类）
+    			DishServiceImpl
+    			StudentServiceImpl
+    			UserServiceImpl
+    			……
+    		IDishService
+    		IUserService
+    		TStudentService
+    		……
+    	Util（工具类（包））
+    		Constant（静态数据变量）(例如：public static String loginUrl="/login.html"; 一类的，这样调用时就只需要写loginUrl而不是具体的链接)
+    
+  
+  
+  Resources
+  	Mapper（mapper配置文件）（里面写动态sql语句）
+  		TDishMapper.xml
+  		TStudentMapper.xml
+  		UserMapper.xml
+  		……
+  	Public（静态资源和网页）
+  		Assets（静态的css样式、js、图片等）
+  			Admin
+  			Js
+  		Favicon.ico
+  		index.html（网页）
+  		login.html（网页）
+  		****.html（网页）
+  		……
+  	Application.properties（springboot的全局配置文件）
+  	Mybatis-config.xml
+
+
+
+/*************************** 简单介绍 **********************************/
+ssm： https://blog.csdn.net/weixin_45650003/article/details/121623824
+springboot： https://blog.csdn.net/Delia_theme/article/details/88681722
+DAO层、Service层、Controller层： https://blog.csdn.net/weixin_43104811/article/details/122365925
+拦截器： https://blog.csdn.net/reggergdsg/article/details/52962774
+layui： https://blog.csdn.net/Augenstern_QXL/article/details/119748962
+
+
