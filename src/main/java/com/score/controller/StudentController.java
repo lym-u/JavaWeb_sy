@@ -18,7 +18,7 @@ import com.score.util.Constant;
  *
  */
 @RequestMapping("/student")
-@RestController //标识为返回类型为Json的控制
+@RestController //标识为返回类型为Json的控制 //@RestController = @ResponseBody + @Controller
 public class StudentController {
 	@Autowired
 	private TStudentService studentService;

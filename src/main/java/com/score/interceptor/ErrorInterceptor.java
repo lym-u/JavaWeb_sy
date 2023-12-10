@@ -7,7 +7,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *  * 自定义拦截器1  
+ * 自定义拦截器1
+ *
+ * 拦截器和过滤器区别：
+ * 归属不同：Filter（过滤器）属于Servlet技术，Interceptor（拦截器）属于SpringMVC技术
+ * 拦截内容不同：Filter对所有访问进行增强，Interceptor仅针对SpringMVC的访问进行增强
  */
 @Controller
 public class ErrorInterceptor implements HandlerInterceptor {
