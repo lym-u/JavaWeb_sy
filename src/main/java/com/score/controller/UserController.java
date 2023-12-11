@@ -16,7 +16,14 @@ import com.score.service.TStudentService;
 import com.score.util.Constant;
 
 /**
- * @author hmg
+ *
+ * 改成我们的：
+ * 系统管理员登录（saLogin）
+ * 系统管理员登出（saLoginOut）
+ * 食堂管理员登录（cmLogin）
+ * 食堂管理员登出（cmLoginOut）
+ * 师生用户登录（tsuLogin）
+ * 师生用户登出（tsuLoginOut）
  *
  */
 @RequestMapping("/user")
