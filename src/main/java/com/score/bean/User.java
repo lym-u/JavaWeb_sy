@@ -9,39 +9,31 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class User {
-	/*用户名称*/
-	private int userId;
-	/*用户登录名称*/
-	private String userName;
-	/* 用户登录密码 */
+	private int id;
+	private String username;
 	private String password;
-	
-	private String type;
-	public int getUserId() {
-		return userId;
+
+	public int getId() {
+		return id;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	public String getUserName() {
-		return userName;
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	
-	
-
 }

@@ -3,13 +3,13 @@
 <mapper namespace="com.score.dao.UserDao">
 	<!-- 获得用户列表 -->
 	<select id="getUser"  resultType="com.score.bean.User" parameterType="com.score.bean.User">
-		select  user_id userId,user_name userName,pass_word password from t_user 
+		SELECT id, username, password FROM system_admin
 		<where>
-			<if test="userName !=null and userName !=''">
-					and user_name=#{userName}
+			<if test="username != null and username != ''">
+				AND username = #{username}
 			</if>
-			<if test="password !=null and password !=''">
-					and pass_word=#{password}
+			<if test="password != null and password != ''">
+				AND password = #{password}
 			</if>
 		</where>
 	</select>

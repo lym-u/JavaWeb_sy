@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.score.dao.CanteenAdminMapper">
+    <resultMap id="BaseResultMap" type="com.score.bean.CanteenAdmin">
+        <id column="ad_id" jdbcType="INTEGER" property="adID" />
+        <result column="ad_username" jdbcType="VARCHAR" property="adUsername" />
+        <result column="ad_password" jdbcType="VARCHAR" property="adPassword" />
+        <result column="ad_canteen_id" jdbcType="INTEGER" property="adCanteenID" />
+    </resultMap>
+
+    //根据学号删除
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from canteen_admin
+        where ad_id = #{adID,jdbcType=INTEGER}
+    </delete>
+
+    //插入食堂管理员信息
+    <insert id="insert" parameterType="com.score.bean.CanteenAdmin">
+        insert into canteem_admin (ad_id,ad_username, ad_password, ad_canteen_id)
+        values (#{adID,jdbcType=INTEGER},#{adUsername,jdbcType=VARCHAR}, #{adPassword,jdbcType=VARCHAR}, #{adCanteenID,jdbcType=INTEGER})
+    </insert>
+
+    //根据工号更新信息
+    <update id="updateByPrimaryKey" parameterType="com.score.bean.CanteenAdmin">
+        update canteen_admin
+        set ad_username = #{adUsername,jdbcType=VARCHAR},
+            ad_password = #{adPassword,jdbcType=VARCHAR},
+            ad_canteen_id = #{adCanteenID,jdbcType=INTEGER}
+        where ad_id = #{adID,jdbcType=INTEGER}
+    </update>
+
+    //查询所有人信息
+    <select id="selectAll" resultMap="BaseResultMap" parameterType="com.score.bean.CanteenAdmin">
+        select ad_id, ad_username, ad_password, ad_canteen_id
+        from canteen_admin
+        where 1=1
+        <if test="ad_username !=null and ad_username !=''">
+            and ad_username like concat('%',#{adUsername},'%')
+        </if>
+    </select>
+
+    //登陆时查询
+    <select id="selectloginStudent" resultMap="BaseResultMap" parameterType="com.score.bean.CanteenAdmin">
+        select ad_id, ad_username, ad_password, ad_canteen_id
+        from canteen_admin
+        where 1=1
+        <if test="adID !=null and adID !=''">
+            and ad_id =#{adID}
+        </if>
+        <if test="adPassword !=null and adPassword !=''">
+            and ad_password =#{adPassword}
+        </if>
+    </select>
+</mapper>
