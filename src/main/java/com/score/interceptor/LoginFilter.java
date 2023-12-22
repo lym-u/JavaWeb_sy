@@ -20,7 +20,7 @@ public class LoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
  
-        System.out.println("----------------------->过滤器被创建");
+        System.out.println("----------------------->过滤器1被创建");
     }
  
     @Override
@@ -58,7 +58,7 @@ public class LoginFilter implements Filter {
     }
     @Override
     public void destroy() {
-        System.out.println("----------------------->过滤器被销毁");
+        System.out.println("----------------------->过滤器1被销毁");
     }
 
 }
