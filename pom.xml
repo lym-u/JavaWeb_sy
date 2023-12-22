@@ -45,6 +45,20 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.0</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-maven-plugin</artifactId>
+			<version>1.3.7</version>
+		</dependency>
+
+
 	</dependencies>
 	<!-- 添加编译和打包的相关插件  -->
 	<build>
@@ -54,6 +68,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.5</version>
+				<configuration>
+					<!--配置文件的位置-->
+					<configurationFile>src/main/resources/com/canteen/mapper/generatorConfig.xml</configurationFile>
+					<overwrite>true</overwrite>
+					<verbose>true</verbose>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>
