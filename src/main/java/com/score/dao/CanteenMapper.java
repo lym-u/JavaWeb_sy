@@ -18,6 +18,10 @@ public interface CanteenMapper {
 	 * @param canteen
 	 * @return
 	 */
-	List<Canteen> getCanteen(Canteen canteen);
-
+	//	List<Canteen> getCanteen(Canteen canteen);
+	Canteen getCanteenById(int id);
+	List<Canteen> getAllCanteens();
+	int addCanteen(Canteen canteen);
+	int updateCanteen(Canteen canteen);
+	int deleteCanteen(int id);
 }
