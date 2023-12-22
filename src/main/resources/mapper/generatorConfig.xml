@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 导入配置文件 -->
+    <properties resource="application-dev.properties"/>
+    <!-- 指定连接数据库的 JDBC 驱动包的所在位置，请确保该路径为你本机的完整路径 -->
+    <classPathEntry location="D:\java\mysql-connector-java-8.0.26.jar"/>
+
+    <context id="MySql" defaultModelType="flat">
+        <!-- 生成的POJO实现java.io.Serializable接口 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <commentGenerator>
+            <!-- 将数据库中表的字段描述信息添加到注释 -->
+            <property name="addRemarkComments" value="true"/>
+            <!-- 注释里不添加日期 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接配置 -->
+        <jdbcConnection
+                driverClass="${spring.datasource.driver-class-name}"
+                connectionURL="${spring.datasource.url}"
+                userId="${spring.datasource.username}"
+                password="${spring.datasource.password}"/>
+
+        <!-- 生成POJO对象 -->
+        <javaModelGenerator targetPackage="com.canteen.bean" targetProject="src/main/java"></javaModelGenerator>
+
+        <!-- 生成mapper xml文件 -->
+        <sqlMapGenerator targetPackage="com.canteen.mapper" targetProject="src/main/resources"></sqlMapGenerator>
+
+        <!-- 生成mapper接口 -->
+        <javaClientGenerator targetPackage="com.canteen.mapper" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
+
+        <!-- 指定要操作的表 -->
+        <table tableName="Dish"/>
+        <table tableName="Canteen"/>
+        <table tableName="CanteenManager"/>
+        <table tableName="SystemAdmin"/>
+        <table tableName="User"/>
+        <table tableName="CanteenReview"/>
+        <table tableName="DishReview"/>
+        <table tableName="CommunityPost"/>
+        <table tableName="CanteenReviewReply"/>
+        <table tableName="ActivityAnnoucement"/>
+        <table tableName="PostLikes"/>
+        <table tableName="PostReply"/>
+        <table tableName="Complains"/>
+    </context>
+</generatorConfiguration>
