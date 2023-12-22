@@ -1,6 +1,5 @@
 package com.canteen.mapper;
 
-import com.canteen.bean.User;
 import com.canteen.bean.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;

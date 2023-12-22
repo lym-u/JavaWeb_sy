@@ -3,7 +3,6 @@ package com.canteen.service;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
-import com.canteen.bean.User;
 
 /**
  * 用户服务接口

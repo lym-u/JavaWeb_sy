@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.canteen.bean.User;
-
 /**
  * 用户登录数据层
  * @author hmg
