@@ -38,8 +38,7 @@ public class DishServiceImpl implements DishService {
      */
     @Override
     public List<Dishes> serchDish() {
-        TStudent student=dishMapper.selectByPrimaryKey(studentNo);
-        return student;
+
     }
 
     /**
@@ -49,7 +48,8 @@ public class DishServiceImpl implements DishService {
      */
     @Override
     public Integer addDish(Dishes dish) {
-
+        Integer total=studentMapper.insert(student);
+        return total;
     }
 
     /**
