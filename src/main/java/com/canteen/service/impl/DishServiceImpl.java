@@ -1,9 +1,7 @@
 package com.canteen.service.impl;
 
 import com.canteen.bean.Dishes;
-import com.canteen.bean.TStudent;
 import com.canteen.dao.DishMapper;
-import com.canteen.dao.TStudentMapper;
 import com.canteen.service.DishService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
