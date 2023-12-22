@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.score.dao.TScoreMapper">
-	<resultMap id="BaseResultMap" type="com.score.bean.TScore">
+<mapper namespace="com.canteen.dao.TScoreMapper">
+	<resultMap id="BaseResultMap" type="com.canteen.bean.TScore">
 		<id column="score_id" property="scoreId" jdbcType="INTEGER" />
 		<result column="score_value" property="scoreValue" jdbcType="INTEGER" />
 		<result column="score_type" property="scoreType" jdbcType="VARCHAR" />
@@ -13,7 +13,7 @@
 		t_score
 		where score_id = #{scoreId,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.score.bean.TScore">
+	<insert id="insert" parameterType="com.canteen.bean.TScore">
 		<selectKey resultType="java.lang.Integer" keyProperty="scoreId"
 			order="AFTER">
 			SELECT LAST_INSERT_ID()
@@ -25,7 +25,7 @@
 		#{studentId,jdbcType=INTEGER}
 		)
 	</insert>
-	<update id="updateByPrimaryKey" parameterType="com.score.bean.TScore">
+	<update id="updateByPrimaryKey" parameterType="com.canteen.bean.TScore">
 		update t_score
 		set
 		score_value = #{scoreValue,jdbcType=INTEGER},
@@ -42,7 +42,7 @@
 		from t_score
 		where score_id = #{scoreId,jdbcType=INTEGER}
 	</select>
-	<select id="selectAll" resultMap="BaseResultMap" parameterType="com.score.bean.TScore">
+	<select id="selectAll" resultMap="BaseResultMap" parameterType="com.canteen.bean.TScore">
 		select score_id, score_value, score_type, student_id,student_name
 		from
 		t_score c LEFT JOIN t_student s ON s.student_no=c.student_id
@@ -56,7 +56,7 @@
 	</select>
 
 	<select id="countByType" resultType="java.lang.Integer"
-		parameterType="com.score.bean.TScore">
+		parameterType="com.canteen.bean.TScore">
 		select count(1)
 		from t_score
 		where score_type=#{scoreType}
