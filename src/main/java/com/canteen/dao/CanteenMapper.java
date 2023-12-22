@@ -1,5 +1,9 @@
 package com.canteen.dao;
 
+<<<<<<< HEAD
+=======
+import com.canteen.bean.Canteen;
+>>>>>>> origin/branch1
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
