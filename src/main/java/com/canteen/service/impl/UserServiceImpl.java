@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.canteen.dao.UserDao;
 import com.canteen.service.IUserService;
 
 /**

@@ -1,4 +1,4 @@
-package com.canteen.mapper;
+package com.canteen.dao;
 
 import com.canteen.bean.Canteenreviewreply;
 import com.canteen.bean.CanteenreviewreplyExample;

@@ -1,4 +1,4 @@
-package com.canteen.mapper;
+package com.canteen.dao;
 
 import com.canteen.bean.Canteenmanager;
 import com.canteen.bean.CanteenmanagerExample;
