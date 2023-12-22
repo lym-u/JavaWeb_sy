@@ -14,7 +14,7 @@
 	<body>
 		<div class="m-login-bg">
 			<div class="m-login">
-				<h3>单科学生成绩管理查询系统</h3>
+				<h3>食堂点评交流社区</h3>
 				<div class="m-login-warp">
 					<form class="layui-form">
 						<div class="layui-form-item">
@@ -24,8 +24,9 @@
 							<input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
-							<input type="radio" name="type" value="1" title="教师" checked="">
-      						<input type="radio" name="type" value="2" title="学生">
+							<input type="radio" name="type" value="2" title="师生用户" checked="">
+							<input type="radio" name="type" value="3" title="食堂管理员">
+							<input type="radio" name="type" value="1" title="系统">
 						</div>
 						<div class="layui-form-item m-login-btn">
 							<div class="layui-inline">
@@ -37,7 +38,7 @@
 						</div>
 					</form>
 				</div>
-				<p class="copyright">Copyright 2018-2021 by 学生单科成绩管理系统</p>
+				<p class="copyright">Copyright 2023 by 食堂点评交流社区</p>
 			</div>
 		</div>
 		<script src="assets/admin/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
@@ -84,12 +85,12 @@
 				                        });
 				                    }
 				                });
-			     		}else{
+			     		}else if("2"==param.type){
 			     			debugger;
 			     			var userName=param.userName;
 			     			var reg=/^[\d]{6,10}$/;
 			     			if(userName.length>10){
-			     				layer.msg('学号长度不能大于10位', {
+			     				layer.msg('学号/工号长度不能大于10位', {
 		                            icon: 5
 		                        });
 			     			}
@@ -98,11 +99,11 @@
 					                //几个参数需要注意一下
 					                    type: "POST",//方法类型
 					                    dataType: "json",//预期服务器返回的数据类型
-					                    url: "/user/studentLogin",//url
+					                    url: "/user/TstudentLogin",//url
 					                    data: param,
 					                    success: function (result) {
 					                    	if (result.code == "0") {
-							                       location.href="/student-index.html";
+							                       location.href="/Tstudent-index.html";
 							                    } else {
 							                        layer.msg('用户名密码错误', {
 							                            icon: 5
@@ -116,11 +117,47 @@
 					                    }
 					                });
 			     			}else{
-			     				layer.msg('学生角色登录请使用学号', {
+			     				layer.msg('师生角色登录请使用学号/工号', {
 		                            icon: 5
 		                        });
 			     			}
-			     		}	
+			     		}else{
+							debugger;
+							var userName=param.userName;
+							var reg=/^[\d]{6,10}$/;
+							if(userName.length>10){
+								layer.msg('工号长度不能大于10位', {
+									icon: 5
+								});
+							}
+							if(reg.test(userName)){
+								$.ajax({
+									//几个参数需要注意一下
+									type: "POST",//方法类型
+									dataType: "json",//预期服务器返回的数据类型
+									url: "/user/canteenmanagerLogin",//url
+									data: param,
+									success: function (result) {
+										if (result.code == "0") {
+											location.href="/canteenmanager-index.html";
+										} else {
+											layer.msg('用户名密码错误', {
+												icon: 5
+											});
+										}
+									},
+									error : function() {
+										layer.msg('服务器错误', {
+											icon: 5
+										});
+									}
+								});
+							}else{
+								layer.msg('食堂管理员角色登录请使用工号', {
+									icon: 5
+								});
+							}
+						}
 					return false;
 				});
 
